@@ -12,15 +12,32 @@ var antwortButton = document.getElementById('go')
 var antwortFeld = document.getElementById('antwort')
 let frage;
 
-neueAufgabeButton.onclick = (e)=> {
+const aufgabe=(e)=> {
   frage = questions[Math.floor(Math.random()*questions.length)];
   frageDiv.innerText = frage.question
 }
+neueAufgabeButton.addEventListener("click",aufgabe)
 
-antwortButton.onclick = (e)=> {
-  if ( antwortFeld.value.trim() === frage.answer ){
-    punkteDiv.innerText = Number(punkteDiv.innerText) + 100
-  } else {
-    punkteDiv.innerText = Number(punkteDiv.innerText) - 100
-  }
+const antwort = (e)=> {
+  var promise1 = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      if ( antwortFeld.value.trim() === frage.answer ){
+        punkteDiv.innerText = Number(punkteDiv.innerText) + 100
+        resolve(punkteDiv.innerText);
+      } else {
+        punkteDiv.innerText = Number(punkteDiv.innerText) - 100
+      }
+    }, 10000);
+  });
+
+  promise1.then(function(value) {
+    console.log(value);
+    
+  });
 }
+neueAufgabeButton.addEventListener("click",antwort)
+
+
+
+console.log(promise1);
+

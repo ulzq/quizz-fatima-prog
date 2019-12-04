@@ -1,0 +1,20 @@
+body{
+    background: url(sunset-3112452_960_720.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+button{
+    width: 220px;
+    height: 50px;
+    background: red;
+    font-size: 24px;
+}
+#frage{
+    font-size: 24px;
+
+}
+#punkte{
+    font-size: 36px;
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue; 
+}
